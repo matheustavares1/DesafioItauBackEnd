@@ -1,8 +1,6 @@
 package com.DesafioItau.DesafioBackEndItau.entities;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.time.OffsetTime;
 
 public class Transaction {
 
