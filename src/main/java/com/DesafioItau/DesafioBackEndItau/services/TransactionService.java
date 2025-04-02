@@ -61,4 +61,8 @@ public class TransactionService {
         return transactions.stream()
                 .collect(Collectors.summarizingDouble(Transaction::getValor));
     }
+
+    public void removeTrasactions() {
+       repository.deleteTransaction();
+    }
 }

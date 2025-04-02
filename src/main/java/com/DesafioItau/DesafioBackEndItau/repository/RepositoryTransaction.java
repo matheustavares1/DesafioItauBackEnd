@@ -41,4 +41,8 @@ public class RepositoryTransaction {
                 .filter(transaction -> transaction.getDataHora().isBefore(agora.minusSeconds(60)))
                 .collect(Collectors.toList());
     }
+    //Remove Transacoes
+    public void deleteTransaction() {
+        transactions.clear();
+    }
 }

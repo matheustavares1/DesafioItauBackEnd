@@ -33,4 +33,8 @@ public class TransactionController {
     public ResponseEntity<List<Transaction>>getTransactions() {
         return ResponseEntity.ok().body(transactionService.getTransactionDTO());
     }
+    @DeleteMapping("/transacao")
+    public void removeTransactions(){
+        transactionService.removeTrasactions();
+    }
 }
