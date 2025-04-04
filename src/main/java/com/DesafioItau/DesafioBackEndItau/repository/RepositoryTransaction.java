@@ -1,28 +1,23 @@
 package com.DesafioItau.DesafioBackEndItau.repository;
 
 import com.DesafioItau.DesafioBackEndItau.entities.Transaction;
+import org.springframework.stereotype.Repository;
 
 import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Repository
 public class RepositoryTransaction {
 
-    private static RepositoryTransaction instance;
+
     private static  List<Transaction> transactions;
 
     private RepositoryTransaction() {
         transactions = new ArrayList<>();
     }
 
-    public static RepositoryTransaction getInstance() {
-        if (instance == null) {
-            instance = new RepositoryTransaction();
-        }
-        return instance;
-    }
 
     //buscar todas as transacoes
     public List<Transaction> getTransactions() {
@@ -34,13 +29,14 @@ public class RepositoryTransaction {
         transactions.add(transaction);
     }
 
-    //Buscas transacoes do ultimo minutos
-    public static List<Transaction> findByLast60s() {
-        OffsetDateTime agora = OffsetDateTime.now(ZoneOffset.UTC);
+    //Buscas transacoes do ultimo minuto
+    public List<Transaction> findByLast60s() {
+        OffsetDateTime agora = OffsetDateTime.now().minusSeconds(60);
         return transactions.stream()
-                .filter(transaction -> transaction.getDataHora().isBefore(agora.minusSeconds(60)))
+                .filter(transaction -> transaction.getDataHora().isAfter(agora))
                 .collect(Collectors.toList());
     }
+
     //Remove Transacoes
     public void deleteTransaction() {
         transactions.clear();
