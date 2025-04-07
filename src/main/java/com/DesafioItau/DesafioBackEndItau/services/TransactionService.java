@@ -1,6 +1,5 @@
 package com.DesafioItau.DesafioBackEndItau.services;
 
-import com.DesafioItau.DesafioBackEndItau.dtos.StatisticsResponse;
 import com.DesafioItau.DesafioBackEndItau.dtos.TransactionDTO;
 import com.DesafioItau.DesafioBackEndItau.dtos.TransactionValueDTO;
 import com.DesafioItau.DesafioBackEndItau.entities.Transaction;
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
-import java.util.DoubleSummaryStatistics;
 import java.util.List;
 import java.util.UUID;
 

@@ -34,9 +34,9 @@ public class StatisticsService {
         return new StatisticsResponse(
                 statistics.getCount(),
                 statistics.getSum(),
-                statistics.getAverage(),
                 min,
-                max
+                max,
+                statistics.getAverage()
         );
     }
 }
